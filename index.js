@@ -15,13 +15,12 @@ serve.post("/sign-up", (req, res) => {
 });
 
 serve.get("/tweets", (req, res) => {
-	res.send(tweets);
-	console.log(tweets);
+	res.send(tweets.slice(0, 10));
 });
 
 serve.post("/tweets", (req, res) => {
 	const dado = { ...req.body, avatar: usuario.avatar };
-	tweets.push(dado);
+	tweets.unshift(dado);
 	res.send("OK");
 });
 
